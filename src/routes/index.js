@@ -1,12 +1,17 @@
-const express = require('express')
-const routes = express.Router()
+const express = require ('express');
+const routes = express.Router ();
 
-routes.get('/', (req,res)=>{
-    return res.send('<title>Index</title><h1>Index</h1>')
-})
+const ProdutoController = require ('./../controller/ProdutosController');
 
-routes.get('/produtos', (req,res)=>{
-    return res.send('<title>Produtos</title><h1>Index de produtos</h1>')
-})
+routes.get ('/', (req, res) => {
+  return res.send ('<title>Index</title><h1>Index</h1>');
+});
+
+routes.get ('/produtos', ProdutoController.index);
+routes.get ('/produtos/page/:page/:categoria', ProdutoController.showCategoria);
+routes.get ('/produtos/page/:page', ProdutoController.show);
+routes.put ('/produtos/update/:id', ProdutoController.update);
+routes.delete ('/produtos/deletar/:id', ProdutoController.destruir);
+routes.post ('/registrar_produtos', ProdutoController.registro);
 
 module.exports = routes;
