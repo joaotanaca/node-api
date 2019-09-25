@@ -1,9 +1,12 @@
 const express = require ('express')
 const mongoose = require('mongoose')
 const requireDir = require('require-dir')
+const cors = require('cors')
 
 //Iniciando o Back
 const app = express ();
+app.use(express.json())
+app.use(cors(true))
 
 //Iniciando o Banco
 mongoose.Promise = global.Promise;
