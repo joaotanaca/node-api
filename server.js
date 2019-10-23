@@ -7,14 +7,15 @@ const cors = require('cors')
 const app = express ();
 app.use(express.json())
 app.use(cors(true))
-
+// mongodb+srv://tanaca:c63QBPdRxjwpTgpc@bdmongo-orcgv.mongodb.net/admin?retryWrites=true&w=majority
+//mongodb+srv://tanaca:c63QBPdRxjwpTgpc@bdmongo-orcgv.mongodb.net/test?retryWrites=true&w=majority
 //Iniciando o Banco
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/nodeapi', {useNewUrlParser: true, useUnifiedTopology:true}).then(() => {
+mongoose.connect('mongodb+srv://tanaca:acfrases123@bdmongo-orcgv.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology:true}).then(() => {
     console.log("Mongo DB Conectado")
 }).catch((erro) => {
     console.log("Aconteceu o erro: " + erro)
 });
+
 requireDir('./src/model');
 const Produto = mongoose.model('Produtos')
 

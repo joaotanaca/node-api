@@ -8,9 +8,11 @@ routes.get ('/', (req, res) => {
 });
 
 routes.get ('/produtos', ProdutoController.index);
+routes.get ('/produtos/:id', ProdutoController.showProduto);
 routes.get ('/produtos/page/:page/:categoria', ProdutoController.showCategoria);
 routes.get ('/produtos/page/:page', ProdutoController.show);
 routes.put ('/produtos/update/:id', ProdutoController.update);
+routes.put ('/produtos/update/one/:name', ProdutoController.updateOne);
 routes.delete ('/produtos/deletar/:id', ProdutoController.destruir);
 routes.post ('/registrar_produtos', ProdutoController.registro);
 

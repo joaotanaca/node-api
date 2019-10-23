@@ -9,7 +9,12 @@ module.exports = {
   },
   async show (req, res) {
     const page = req.params.page;
-    const produto = await Produtos.paginate ({}, {page, limit: 12});
+    const produto = await Produtos.paginate ({}, {sort:'title' ,page, limit: 12});
+
+    return res.json (produto);
+  },
+  async showProduto (req, res) {
+    const produto = await Produtos.findById(req.params.id);
 
     return res.json (produto);
   },
@@ -33,6 +38,14 @@ module.exports = {
   async update (req, res) {
     req.body.img = '/img/'+req.body.img+'_web.png'
     const produto = await Produtos.findByIdAndUpdate (req.params.id, req.body, {
+      new: true,
+    });
+
+    return res.json (produto);
+  },
+  async updateOne (req, res) {
+    req.body.img = '/img/'+req.body.img
+    const produto = await Produtos.findOneAndUpdate (req.params.name, req.body, {
       new: true,
     });
 
