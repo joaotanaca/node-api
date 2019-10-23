@@ -22,4 +22,4 @@ const Produto = mongoose.model('Produtos')
 //Rotas
 app.use('/', require('./src/routes/index'))
 
-app.listen (3001);
+app.listen (process.env.PORT || 3001);
