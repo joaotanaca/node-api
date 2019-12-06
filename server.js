@@ -18,8 +18,10 @@ mongoose.connect('mongodb+srv://tanaca:acfrases123@bdmongo-orcgv.mongodb.net/tes
 
 requireDir('./src/model');
 const Produto = mongoose.model('Produtos')
+const Menu = mongoose.model('Menu')
 
 //Rotas
-app.use('/', require('./src/routes/index'))
+app.use('/', require('./src/routes/RoutesProdutos'))
+app.use('/menu', require('./src/routes/RoutesMenu'))
 
 app.listen (process.env.PORT || 3001);

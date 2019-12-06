@@ -1,7 +1,7 @@
 const express = require ('express');
 const routes = express.Router ();
 
-const ProdutoController = require ('./../controller/ProdutosController');
+const ProdutoController = require ('../controller/ProdutosController');
 
 routes.get ('/', (req, res) => {
   return res.send ('<title>Index</title><h1>Index</h1>');
